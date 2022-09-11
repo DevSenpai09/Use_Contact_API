@@ -1,9 +1,22 @@
-const COntacts = () => {
+import styled from "styled-components";
+
+const StyledContacts = styled.div``;
+
+const Contacts = () => {
   return (
-    <div>
-      <h1>Contacts</h1>
-    </div>
+    <StyledContacts>
+      <div className="contact">
+        <picture>
+          <img src="" alt="" />
+        </picture>
+
+        <div>
+          <h2>John Doe</h2>
+          <p>+234 90 567 9228</p>
+        </div>
+      </div>
+    </StyledContacts>
   );
 };
 
-export default COntacts;
+export default Contacts;

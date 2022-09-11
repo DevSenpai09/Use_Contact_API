@@ -1,10 +1,25 @@
 /* Style Initialization*/
+:root {
+  --gray: #9e9c9c;
+}
 
 * {
   margin: 0px;
   padding: 0px;
   border: none;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom right, #5593de, #d278ae);
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
 /* End Style Initialization */

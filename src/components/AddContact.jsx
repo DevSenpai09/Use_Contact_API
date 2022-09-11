@@ -1,3 +1,5 @@
+import styledComponents from "styled-components";
+
 const AddContact = () => {
   return (
     <div>
