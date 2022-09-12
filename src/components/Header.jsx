@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
   padding: 1.5rem 2rem;
@@ -16,6 +17,15 @@ const StyledHeader = styled.header`
   div {
     color: var(--gray);
     font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  a {
+    color: inherit;
+    font-size: 2.5rem;
+    display: flex;
   }
 `;
 
@@ -25,7 +35,9 @@ const Header = () => {
       <h1>Contacts</h1>
       <div>
         <BsSearch />
-        <IoIosArrowBack />
+        <Link to={"/"}>
+          <IoIosArrowBack />
+        </Link>
       </div>
     </StyledHeader>
   );

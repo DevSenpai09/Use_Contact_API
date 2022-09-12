@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Routes, Route, Link } from "react-router-dom";
 import AddContact from "./components/AddContact";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
@@ -13,7 +14,7 @@ const StyledApp = styled.div`
   grid-template-rows: auto 1fr auto;
 
   main {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `;
 
@@ -22,8 +23,10 @@ const App = () => {
     <StyledApp>
       <Header />
       <main>
-        <Contacts />
-        {/* <AddContact /> */}
+        <Routes>
+          <Route path="/" element={<Contacts />} />
+          <Route path="/add_contact" element={<AddContact />} />
+        </Routes>
       </main>
       <Footer />
     </StyledApp>

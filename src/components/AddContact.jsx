@@ -42,7 +42,7 @@ const StyledAddContacts = styled.div`
 const AddContact = () => {
   return (
     <StyledAddContacts>
-      <h2>Add Contacts</h2>
+      <h2>Add Contact</h2>
 
       <picture>
         <img src="" alt="" />
