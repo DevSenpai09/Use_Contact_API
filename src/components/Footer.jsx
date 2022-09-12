@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const StyledFooter = styled.footer`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
   gap: 1rem;
   padding: 2rem;
 
@@ -37,8 +37,8 @@ const Footer = () => {
       <Link to={"/add_contact"}>
         <button>Add</button>
       </Link>
-      <button>Share</button>
-      <button>Delete</button>
+      {/* <button>Share</button>
+      <button>Delete</button> */}
     </StyledFooter>
   );
 };

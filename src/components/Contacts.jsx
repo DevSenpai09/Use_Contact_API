@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { AiOutlineShareAlt } from "react-icons/ai";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const StyledContacts = styled.div`
   padding: 3rem 2rem;
 
   .contact {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    justify-content: space-between;
     gap: 2rem;
 
     picture {
@@ -22,7 +26,7 @@ const StyledContacts = styled.div`
       }
     }
 
-    div {
+    .details {
       font-family: sans-serif;
 
       h2 {
@@ -35,6 +39,13 @@ const StyledContacts = styled.div`
         margin-top: 0.5rem;
       }
     }
+
+    .icons {
+      font-size: 3rem;
+      color: #777;
+      display: flex;
+      gap: 2rem;
+    }
   }
 `;
 
@@ -46,9 +57,14 @@ const Contacts = () => {
           <img src={"/src/assets/user_icon.png"} alt="User Image" />
         </picture>
 
-        <div>
+        <div className="details">
           <h2>John Doe</h2>
           <p>+234 90 567 9228</p>
+        </div>
+
+        <div className="icons">
+          <AiOutlineShareAlt />
+          <RiDeleteBin6Line style={{ color: "#d55" }} />
         </div>
       </div>
     </StyledContacts>
