@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import AddContact from "./components/AddContact";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -10,13 +11,20 @@ const StyledApp = styled.div`
   border-radius: 1rem;
   display: grid;
   grid-template-rows: auto 1fr auto;
+
+  main {
+    overflow-y: scroll;
+  }
 `;
 
 const App = () => {
   return (
     <StyledApp>
       <Header />
-      <Contacts />
+      <main>
+        <Contacts />
+        {/* <AddContact /> */}
+      </main>
       <Footer />
     </StyledApp>
   );

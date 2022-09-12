@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
+import { IoIosArrowBack } from "react-icons/io";
 
 const StyledHeader = styled.header`
   padding: 1.5rem 2rem;
@@ -24,6 +25,7 @@ const Header = () => {
       <h1>Contacts</h1>
       <div>
         <BsSearch />
+        <IoIosArrowBack />
       </div>
     </StyledHeader>
   );
