@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import "../API/ContactsAPI";
 
 const StyledContacts = styled.div`
   padding: 3rem 2rem;

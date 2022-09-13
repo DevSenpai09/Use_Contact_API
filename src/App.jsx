@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { PageLocation } from "./states/Context";
 import AddContact from "./components/AddContact";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
@@ -19,16 +20,20 @@ const StyledApp = styled.div`
 `;
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <StyledApp>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Contacts />} />
-          <Route path="/add_contact" element={<AddContact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <PageLocation.Provider value={{ location }}>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Contacts />} />
+            <Route path="/add_contact" element={<AddContact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </PageLocation.Provider>
     </StyledApp>
   );
 };

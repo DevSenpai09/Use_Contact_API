@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PageLocation } from "../states/Context";
 
 const StyledHeader = styled.header`
   padding: 1.5rem 2rem;
@@ -30,14 +32,18 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
+  const { location } = useContext(PageLocation);
+
   return (
     <StyledHeader>
       <h1>Contacts</h1>
       <div>
-        <BsSearch />
-        <Link to={"/"}>
-          <IoIosArrowBack />
-        </Link>
+        {location.pathname == "/" && <BsSearch />}
+        {location.pathname == "/add_contact" && (
+          <Link to={"/"}>
+            <IoIosArrowBack />
+          </Link>
+        )}
       </div>
     </StyledHeader>
   );
