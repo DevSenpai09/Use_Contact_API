@@ -1,10 +1,19 @@
 import styled from "styled-components";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import "../API/ContactsAPI";
+import { useRef, useEffect, useState } from "react";
+import axios from "axios";
+
+const config = {
+  method: "get",
+  url: "https://jsonplaceholder.typicode.com/users",
+  headers: {},
+};
 
 const StyledContacts = styled.div`
   padding: 3rem 2rem;
+  display: grid;
+  gap: 2rem;
 
   .contact {
     display: grid;
@@ -51,23 +60,41 @@ const StyledContacts = styled.div`
 `;
 
 const Contacts = () => {
+  const contactsRef = useRef([]);
+  const [isContacts, setIsContacts] = useState(false);
+
+  useEffect(() => {
+    axios(config)
+      .then((response) => {
+        contactsRef.current = response.data;
+        console.log(contactsRef.current);
+        setIsContacts(true);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   return (
     <StyledContacts>
-      <div className="contact">
-        <picture>
-          <img src={"/src/assets/user_icon.png"} alt="User Image" />
-        </picture>
+      {isContacts &&
+        contactsRef.current.map((contact) => (
+          <div className="contact" key={contact.id}>
+            <picture>
+              <img src={"/src/assets/user_icon.png"} alt="User Image" />
+            </picture>
 
-        <div className="details">
-          <h2>John Doe</h2>
-          <p>+234 90 567 9228</p>
-        </div>
+            <div className="details">
+              <h2>{contact.name}</h2>
+              <p>{contact.phone}</p>
+            </div>
 
-        <div className="icons">
-          <AiOutlineShareAlt />
-          <RiDeleteBin6Line style={{ color: "#d55" }} />
-        </div>
-      </div>
+            <div className="icons">
+              <AiOutlineShareAlt />
+              <RiDeleteBin6Line style={{ color: "#d55" }} />
+            </div>
+          </div>
+        ))}
     </StyledContacts>
   );
 };
